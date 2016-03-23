@@ -1,0 +1,9 @@
+<keg-display *ngFor="#currentKeg of kegList"
+(click)="kegClicked(currentKeg)"
+[class.selected]="currentKeg === selectedKeg"
+[task]="currentKeg"></keg-display>
+
+<edit-keg-details *ngIf="selectedKeg"
+[keg]="selectedKeg"></edit-keg-details>
+
+<new-keg></new-keg>
