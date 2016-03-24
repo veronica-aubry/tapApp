@@ -1,10 +1,13 @@
 <keg-display *ngFor="#currentKeg of kegList"
 (click)="kegClicked(currentKeg)"
 [class.selected]="currentKeg === selectedKeg"
+[kegStyle] = "strongBeer(currentKeg)"
 [keg]="currentKeg"
-[class.low]="lowKeg(currentKeg) === true"></keg-display>
+[class.low]="lowKeg(currentKeg) === true"
+>
+</keg-display>
 
 <edit-keg-details *ngIf="selectedKeg"
 [keg]="selectedKeg"></edit-keg-details>
 
-<new-keg></new-keg>
+<new-keg (onSubmitNewKeg)="createKeg($event)"></new-keg>

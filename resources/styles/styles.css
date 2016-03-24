@@ -1,3 +1,9 @@
+
+.strong {
+  background-color: grey;
+  width: 100%
+}
+
 .selected {
   color: #22bdf0;
 }

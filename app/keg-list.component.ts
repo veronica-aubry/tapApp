@@ -21,14 +21,12 @@ export class KegListComponent{
     this.onKegSelect = new EventEmitter();
   }
   kegClicked(clickedKeg: Keg): void {
-    console.log(clickedKeg);
     this.selectedKeg = clickedKeg;
     this.onKegSelect.emit(clickedKeg);
   }
-  createKeg(name: string, brewery: string, price: number, abv: number, ibu: number): void {
-    this.kegList.push(
-      new Keg(name, brewery, price, abv, ibu, this.kegList.length)
-    );
+  createKeg(values) {
+    var keg = new Keg(values[0], values[1], values[2], values[3], values[4], this.kegList.length);
+    this.kegList.push(keg);
   }
   listKegsPerBrewery(chosenBrewery: string, kegList: Keg[]): String[] {
     var breweries: String[] = [];
@@ -45,6 +43,14 @@ export class KegListComponent{
       }
       return false;
     }
+
+  strongBeer(keg: Keg): string {
+    if(keg.abv >= 6.5) {
+      return "strong";
+    }else {
+      return "weak";
+    }
+  }
 
   cheapBeer(kegList: Keg[]): boolean[] {
     var cheapBeerList: boolean[] = [];
