@@ -7,9 +7,9 @@ import { NewKegComponent } from './new-keg.component';
   selector: 'edit-keg-details',
   inputs: ['keg'],
   directives: [KegComponent, NewKegComponent],
-  templateUrl: 'app/edit-keg-details.html'
+  templateUrl: 'app/edit-keg-details.component.html'
 })
 
-export class EditKegDetailsComponent {
+export class EditKegDetails {
   public keg: Keg;
 }

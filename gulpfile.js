@@ -72,13 +72,13 @@ gulp.task('cssBower', ['cssBowerClean'], function() {
 gulp.task('bower', ['jsBower', 'cssBower']);
 
 ////////////////////// SASS //////////////////////
-gulp.task('sassBuild', function() {
-  return gulp.src(['resources/styles/*'])
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./build/css'));
-});
+// gulp.task('sassBuild', function() {
+//   return gulp.src(['resources/styles/*'])
+//     .pipe(sourcemaps.init())
+//     .pipe(sass())
+//     .pipe(sourcemaps.write())
+//     .pipe(gulp.dest('./build/css'));
+// });
 
 ////////////////////// SERVER //////////////////////
 gulp.task('serve', function() {
@@ -90,7 +90,7 @@ gulp.task('serve', function() {
   });
   gulp.watch(['resources/js/*.js'], ['jsBuild']); // vanilla js changes, reload.
   gulp.watch(['*.html'], ['htmlBuild']); // html changes, reload.
-  gulp.watch(['resources/styles/*.css', 'resources/styles/*.scss'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
+  gulp.watch(['resources/styles/*.css'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
   gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
 });
 
@@ -102,7 +102,7 @@ gulp.task('htmlBuild', function(){
   browserSync.reload();
 });
 
-gulp.task('cssBuild', ['sassBuild'], function(){
+gulp.task('cssBuild', function(){
   browserSync.reload();
 });
 
@@ -115,7 +115,6 @@ gulp.task('tsBuild', ['ts'], function(){
 gulp.task('build', ['ts'], function(){
   // we can use the buildProduction environment variable here later.
   gulp.start('bower');
-  gulp.start('sassBuild');
 });
 
 ////////////////////// SETUP NOTES //////////////////////

@@ -1,14 +1,20 @@
 import { Component, EventEmitter } from 'angular2/core';
 import { Keg } from './keg.model';
+import { KegComponent } from './keg.component';
+import { KegListComponent } from './keg-list.component';
+import { EditKegDetails } from './edit-keg-details.component';
 
 @Component({
   selector: 'my-app',
+  directives: [KegListComponent, EditKegDetails],
   template: `
     <div class='container jumbotron'>
       <h1>Tap App</h1>
     </div>
     <div class='container'>
-      <tap-list></tap-list>
+      <keg-list [kegList] = "kegs"
+      (onKegSelect)="kegWasSelected($event)">
+      </keg-list>
     </div>
   `
 })
@@ -24,6 +30,6 @@ export class AppComponent {
     ];
   }
   kegWasSelected(clickedKeg: Keg): void {
-    console.log(clickedKeg);
+    console.log('parent', clickedKeg);
   }
 }
