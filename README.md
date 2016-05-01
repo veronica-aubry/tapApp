@@ -6,7 +6,7 @@
 
 ## Description
 
-_Angular2 web app using TypeScript that allows users to add kegs and subtract from keg contents on click. A pipe is used to alter DOM based on keg properties._
+_Angular2 web app using TypeScript that allows users to add and edit meals and calorie information._
 
 ## Setup/Installation Requirements
 
