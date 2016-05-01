@@ -1,12 +1,12 @@
-# _Meal Tracker App_
+# _Tap App_
 
-#### _Angular2 App Meal-tracking web app 3/25/2016_
+#### _Angular2 Tap Tracker web app 3/25/2016_
 
 #### By _**Veronica Alley**_
 
 ## Description
 
-_Angular2 web app using TypeScript that allows users to add and edit meals and calorie information._
+__Angular2 web app using TypeScript that allows users to add kegs and subtract from keg contents on click. A pipe is used to alter DOM based on keg properties._
 
 ## Setup/Installation Requirements
 
